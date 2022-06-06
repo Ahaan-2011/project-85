@@ -6,7 +6,7 @@ greencar_x=5;
 greencar_y=225;
 
 greencar_width=75;
-greencar_height=225;
+greencar_height=100;
 
 
 background_image = "parkingLot.jpg";
@@ -17,8 +17,8 @@ greencar_image = "car2.png";
 function add() {
 	//upload car, and background images on the canvas.
 	backround_imgTag = new Image(); 
-	background_imgTag.onload = uploadBackground; 
-	background_imgTag.src = background_image; 
+	backround_imgTag.onload = uploadBackground; 
+	backround_imgTag.src = background_image; 
 
 	greencar_imgTag = new Image();  
 	greencar_imgTag.onload = uploadgreencar;  
@@ -27,7 +27,7 @@ function add() {
 
 function uploadBackground() {
 	//Define function ‘uploadBackground’
-	ctx.drawImage(background_imgTag, 0, 0, canvas.width, canvas.height);
+	ctx.drawImage(backround_imgTag, 0, 0, canvas.width, canvas.height);
 
 }
 
@@ -79,7 +79,7 @@ function up()
             greencar_y=greencar_y-10;
             console.log("when up arrow is pressed, x= " + greencar_x + "| y= " + greencar_y);
             uploadBackground();
-            uploadrover();
+            uploadgreencar();
         }
 }
 
@@ -89,9 +89,9 @@ function down()
 	if (greencar_y<=500)
         {
             greencar_y=greencar_y+10;
-            console.log("when up arrow is pressed, x= " + greencar_x + "| y= " + greencar_y);
+            console.log("when down arrow is pressed, x= " + greencar_x + "| y= " + greencar_y);
             uploadBackground();
-            uploadrover();
+            uploadgreencar();
         }
 }
 
@@ -101,20 +101,20 @@ function left()
 	if (greencar_x>=0)
         {
             greencar_x=greencar_x-10;
-            console.log("when up arrow is pressed, x= " + greencar_x + "| y= " + greencar_y);
+            console.log("when left arrow is pressed, x= " + greencar_x + "| y= " + greencar_y);
             uploadBackground();
-            uploadrover();
+            uploadgreencar();
         }
 }
 
 function right()
 {
 	//Define function to move the car right side
-	if (greencar_x>=700)
+	if (greencar_x<=700)
         {
             greencar_x=greencar_x+10;
-            console.log("when up arrow is pressed, x= " + greencar_x + "| y= " + greencar_y);
+            console.log("when right arrow is pressed, x= " + greencar_x + "| y= " + greencar_y);
             uploadBackground();
-            uploadrover();
+            uploadgreencar();
         }
 }
